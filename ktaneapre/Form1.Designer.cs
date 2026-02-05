@@ -30,17 +30,17 @@
         {
             tabControl1 = new TabControl();
             tabPageWireSequences = new TabPage();
-            userControl11 = new WireSequences();
+            wireSequences1 = new WireSequences();
             tabPagePasswords = new TabPage();
-            passwords1 = new Passwords();
+            passwords2 = new Passwords();
             tabPageKnob = new TabPage();
+            knob2 = new Knob();
             tabPageProfile = new TabPage();
             groupBoxProfile = new GroupBox();
             buttonNewProfile = new Button();
             labelNote = new Label();
             labelProfileName = new Label();
             textBoxProfileName = new TextBox();
-            knob1 = new Knob();
             tabControl1.SuspendLayout();
             tabPageWireSequences.SuspendLayout();
             tabPagePasswords.SuspendLayout();
@@ -64,7 +64,7 @@
             // 
             // tabPageWireSequences
             // 
-            tabPageWireSequences.Controls.Add(userControl11);
+            tabPageWireSequences.Controls.Add(wireSequences1);
             tabPageWireSequences.Location = new Point(4, 34);
             tabPageWireSequences.Name = "tabPageWireSequences";
             tabPageWireSequences.Padding = new Padding(3);
@@ -73,36 +73,36 @@
             tabPageWireSequences.Text = "Wire Sequences";
             tabPageWireSequences.UseVisualStyleBackColor = true;
             // 
-            // userControl11
+            // wireSequences1
             // 
-            userControl11.Dock = DockStyle.Fill;
-            userControl11.Location = new Point(3, 3);
-            userControl11.Name = "userControl11";
-            userControl11.Size = new Size(1086, 646);
-            userControl11.TabIndex = 0;
+            wireSequences1.Dock = DockStyle.Fill;
+            wireSequences1.Location = new Point(3, 3);
+            wireSequences1.Name = "wireSequences1";
+            wireSequences1.Size = new Size(1086, 646);
+            wireSequences1.TabIndex = 0;
             // 
             // tabPagePasswords
             // 
-            tabPagePasswords.Controls.Add(passwords1);
-            tabPagePasswords.Location = new Point(4, 34);
+            tabPagePasswords.Controls.Add(passwords2);
+            tabPagePasswords.Location = new Point(4, 24);
             tabPagePasswords.Name = "tabPagePasswords";
             tabPagePasswords.Padding = new Padding(3);
-            tabPagePasswords.Size = new Size(1092, 652);
+            tabPagePasswords.Size = new Size(1092, 662);
             tabPagePasswords.TabIndex = 2;
             tabPagePasswords.Text = "Passwords";
             tabPagePasswords.UseVisualStyleBackColor = true;
             // 
-            // passwords1
+            // passwords2
             // 
-            passwords1.Dock = DockStyle.Fill;
-            passwords1.Location = new Point(3, 3);
-            passwords1.Name = "passwords1";
-            passwords1.Size = new Size(1086, 646);
-            passwords1.TabIndex = 0;
+            passwords2.Dock = DockStyle.Fill;
+            passwords2.Location = new Point(3, 3);
+            passwords2.Name = "passwords2";
+            passwords2.Size = new Size(1086, 656);
+            passwords2.TabIndex = 0;
             // 
             // tabPageKnob
             // 
-            tabPageKnob.Controls.Add(knob1);
+            tabPageKnob.Controls.Add(knob2);
             tabPageKnob.Location = new Point(4, 34);
             tabPageKnob.Name = "tabPageKnob";
             tabPageKnob.Padding = new Padding(3);
@@ -110,6 +110,14 @@
             tabPageKnob.TabIndex = 3;
             tabPageKnob.Text = "Knob";
             tabPageKnob.UseVisualStyleBackColor = true;
+            // 
+            // knob2
+            // 
+            knob2.Dock = DockStyle.Fill;
+            knob2.Location = new Point(3, 3);
+            knob2.Name = "knob2";
+            knob2.Size = new Size(1086, 646);
+            knob2.TabIndex = 0;
             // 
             // tabPageProfile
             // 
@@ -172,14 +180,6 @@
             textBoxProfileName.Size = new Size(100, 32);
             textBoxProfileName.TabIndex = 0;
             // 
-            // knob1
-            // 
-            knob1.Dock = DockStyle.Fill;
-            knob1.Location = new Point(3, 3);
-            knob1.Name = "knob1";
-            knob1.Size = new Size(1086, 646);
-            knob1.TabIndex = 0;
-            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(11F, 25F);
@@ -216,5 +216,8 @@
         private Passwords passwords1;
         private TabPage tabPageKnob;
         private Knob knob1;
+        private WireSequences wireSequences1;
+        private Passwords passwords2;
+        private Knob knob2;
     }
 }

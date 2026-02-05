@@ -11,5 +11,10 @@ namespace ktaneapre
         {
 
         }
+
+        private void tabPageWireSequences_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

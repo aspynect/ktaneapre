@@ -217,9 +217,8 @@
             labelKnobOutput.AutoSize = true;
             labelKnobOutput.Location = new Point(6, 19);
             labelKnobOutput.Name = "labelKnobOutput";
-            labelKnobOutput.Size = new Size(27, 15);
+            labelKnobOutput.Size = new Size(0, 15);
             labelKnobOutput.TabIndex = 0;
-            labelKnobOutput.Text = "jgkf";
             // 
             // Knob
             // 

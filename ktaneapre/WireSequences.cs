@@ -5,7 +5,9 @@ using System.Data;
 using System.Drawing;
 using System.Drawing.Text;
 using System.Text;
+using System.Text.Json;
 using System.Windows.Forms;
+using static System.Windows.Forms.Design.AxImporter;
 
 namespace ktaneapre
 {
@@ -16,6 +18,7 @@ namespace ktaneapre
         private int wireSeqBlueCount;
         private int wireSeqBlackCount;
         private string currentSequenceStep = "";
+        private Wireseq sequences;
 
         private void newWireSequenceStep()
         {
@@ -53,7 +56,7 @@ namespace ktaneapre
 
         private void updateWireOutputs()
         {
-            string phColorString = "abc"; // TODO replace this later pls
+            string colorString = ""; // TODO replace this later pls
             int currentSequenceStepStep = currentSequenceStep.Length - 1;
             Color currentColor =
                 currentSequenceStep[currentSequenceStepStep] == 'r' ? Color.Red :
@@ -73,29 +76,32 @@ namespace ktaneapre
                 case 'r':
                     operands[currentSequenceStepStep, 0].BackColor = Color.Red;
                     operands[currentSequenceStepStep, 0].Text = wireSeqRedCount.ToString();
+                    colorString = sequences.Red[wireSeqRedCount - 1];
                     break;
                 case 'b':
                     operands[currentSequenceStepStep, 0].BackColor = Color.Blue;
                     operands[currentSequenceStepStep, 0].Text = wireSeqBlueCount.ToString();
+                    colorString = sequences.Blue[wireSeqBlueCount - 1];
                     break;
                 case 'k':
                     operands[currentSequenceStepStep, 0].BackColor = Color.Black;
                     operands[currentSequenceStepStep, 0].Text = wireSeqBlackCount.ToString();
+                    colorString = sequences.Black[wireSeqBlackCount - 1];
                     break;
                 default:
                     break;
             }
 
 
-            if (phColorString.Contains("a"))
+            if (colorString.Contains("a"))
             {
                 operands[currentSequenceStepStep, 1].FlatStyle = FlatStyle.Flat;
             }
-            if (phColorString.Contains("b"))
+            if (colorString.Contains("b"))
             {
                 operands[currentSequenceStepStep, 2].FlatStyle = FlatStyle.Flat;
             }
-            if (phColorString.Contains("c"))
+            if (colorString.Contains("c"))
             {
                 operands[currentSequenceStepStep, 3].FlatStyle = FlatStyle.Flat;
             }
@@ -103,9 +109,16 @@ namespace ktaneapre
 
         public WireSequences()
         {
-            InitializeComponent();
-            resetWireSequences();
 
+            try
+            {
+                InitializeComponent();
+                resetWireSequences();
+                string fileContents = File.ReadAllText("template.json");
+                JsonRoot jsonData = JsonSerializer.Deserialize<JsonRoot>(fileContents)!;
+                sequences = jsonData.Wireseq;
+            }
+            catch (Exception e){}
         }
 
         private void buttonInputRed_Click(object sender, EventArgs e)

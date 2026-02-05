@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Text;
+using System.Text.Json;
 using System.Windows.Forms;
 
 namespace ktaneapre
@@ -11,6 +12,7 @@ namespace ktaneapre
     public partial class Knob : UserControl
     {
         bool[] inputs = [false, false, false, false, false, false, false, false, false, false, false, false];
+        Dictionary<string, string> options;
 
         private void updateOutput()
         {
@@ -19,13 +21,19 @@ namespace ktaneapre
             {
                 outputString += i ? 'x' : '/';
             }
-            labelKnobOutput.Text = outputString;
+            labelKnobOutput.Text = options.ContainsKey(outputString) ? options[outputString] : "n/a";
         }
 
         public Knob()
         {
-            InitializeComponent();
-            updateOutput();
+            try
+            {
+                InitializeComponent();
+                string fileContents = File.ReadAllText("template.json");
+                JsonRoot jsonData = JsonSerializer.Deserialize<JsonRoot>(fileContents)!;
+                options = jsonData.Knob;
+                updateOutput();
+            } catch (Exception e){}
         }
 
         private void buttonKnob1_Click(object sender, EventArgs e)
