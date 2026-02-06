@@ -8,6 +8,7 @@ namespace ktaneapre
     using System.Text.Json;
     using System.Text.Json.Serialization;
     using System.Globalization;
+    using System.Runtime.CompilerServices;
 
     public partial class JsonRoot
     {

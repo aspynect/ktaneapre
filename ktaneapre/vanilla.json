@@ -1,0 +1,90 @@
+{
+    "wireseq": {
+        "red": [
+            "c",
+            "b",
+            "a",
+            "ac",
+            "b",
+            "ac",
+            "abc",
+            "ab",
+            "b"
+        ],
+        "blue": [
+            "b",
+            "ac",
+            "b",
+            "a",
+            "b",
+            "bc",
+            "c",
+            "ac",
+            "a"
+        ],
+        "black": [
+            "abc",
+            "ac",
+            "b",
+            "ac",
+            "b",
+            "bc",
+            "ab",
+            "c",
+            "c"
+        ]
+    },
+    "passwords": ["about","after","again","below","could","every","first","found","great","house","large","learn","never","other","place","plant","point","right","small","sound","spell","still","study","their","there","these","thing","think","three","water","where","which","world","would","write"],
+    "knob": {
+        "//x/xxxxxx/x": "u",
+        "x/x/x//xx/xx": "u",
+        "/xx//xxxxx/x": "d",
+        "x/x/x//x///x": "d",
+        "////x/x//xxx": "l",
+        "////x////xx/": "l",
+        "x/xxxxxxx/x/": "r",
+        "x/xx//xxx/x/": "r"
+    },
+    "simon": {
+        "true": [
+            {
+                "r": "b",
+                "b": "r",
+                "g": "y",
+                "y": "g"
+            },
+            {
+                "r": "y",
+                "b": "g",
+                "g": "b",
+                "y": "r"
+            },
+            {
+                "r": "g",
+                "b": "r",
+                "g": "y",
+                "y": "b"
+            }
+        ],
+        "false": [
+            {
+                "r": "b",
+                "b": "y",
+                "g": "g",
+                "y": "r"
+            },
+            {
+                "r": "r",
+                "b": "b",
+                "g": "y",
+                "y": "g"
+            },
+            {
+                "r": "y",
+                "b": "g",
+                "g": "b",
+                "y": "r"
+            }
+        ]
+    }
+}

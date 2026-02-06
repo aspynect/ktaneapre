@@ -58,7 +58,7 @@ namespace ktaneapre
 
         private void updateWireOutputs()
         {
-            string colorString = ""; // TODO replace this later pls
+            string colorString = "";
             int currentSequenceStepStep = currentSequenceStep.Length - 1;
             Color currentColor =
                 currentSequenceStep[currentSequenceStepStep] == 'r' ? Color.Red :
@@ -123,9 +123,10 @@ namespace ktaneapre
             {
                 sequences.Black[wireSeqBlackCount - (currentSequenceStep.Substring(relevantStepStep).Split('k').Length - 1)] = sequences.Black[wireSeqBlackCount - 1].Replace(letter.ToString(), "");
             }
+            if (Profile.profileName == "vanilla") return;
             jsonData.Wireseq = sequences;
             string fileContents = JsonSerializer.Serialize<JsonRoot>(jsonData, new JsonSerializerOptions { WriteIndented = true });
-            File.WriteAllText("template.json", fileContents);
+            File.WriteAllText(Path.Combine("profiles", $"{Profile.profileName}.json"), fileContents);
         }
 
         public WireSequences()
@@ -134,7 +135,7 @@ namespace ktaneapre
             {
                 InitializeComponent();
                 resetWireSequences();
-                string fileContents = File.ReadAllText("template.json");
+                string fileContents = File.ReadAllText(Path.Combine("profiles", $"{Profile.profileName}.json"));
                 jsonData = JsonSerializer.Deserialize<JsonRoot>(fileContents)!;
                 sequences = jsonData.Wireseq;
             }

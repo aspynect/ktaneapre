@@ -36,17 +36,12 @@
             tabPageKnob = new TabPage();
             knob2 = new Knob();
             tabPageProfile = new TabPage();
-            groupBoxProfile = new GroupBox();
-            buttonNewProfile = new Button();
-            labelNote = new Label();
-            labelProfileName = new Label();
-            textBoxProfileName = new TextBox();
+            profile1 = new Profile();
             tabControl1.SuspendLayout();
             tabPageWireSequences.SuspendLayout();
             tabPagePasswords.SuspendLayout();
             tabPageKnob.SuspendLayout();
             tabPageProfile.SuspendLayout();
-            groupBoxProfile.SuspendLayout();
             SuspendLayout();
             // 
             // tabControl1
@@ -121,64 +116,22 @@
             // 
             // tabPageProfile
             // 
-            tabPageProfile.Controls.Add(groupBoxProfile);
-            tabPageProfile.Location = new Point(4, 24);
+            tabPageProfile.Controls.Add(profile1);
+            tabPageProfile.Location = new Point(4, 34);
             tabPageProfile.Name = "tabPageProfile";
             tabPageProfile.Padding = new Padding(3);
-            tabPageProfile.Size = new Size(1092, 662);
+            tabPageProfile.Size = new Size(1092, 652);
             tabPageProfile.TabIndex = 1;
             tabPageProfile.Text = "Profile";
             tabPageProfile.UseVisualStyleBackColor = true;
             // 
-            // groupBoxProfile
+            // profile1
             // 
-            groupBoxProfile.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            groupBoxProfile.Controls.Add(buttonNewProfile);
-            groupBoxProfile.Controls.Add(labelNote);
-            groupBoxProfile.Controls.Add(labelProfileName);
-            groupBoxProfile.Controls.Add(textBoxProfileName);
-            groupBoxProfile.Location = new Point(8, 6);
-            groupBoxProfile.Name = "groupBoxProfile";
-            groupBoxProfile.Size = new Size(1078, 202);
-            groupBoxProfile.TabIndex = 0;
-            groupBoxProfile.TabStop = false;
-            groupBoxProfile.Text = "Profile";
-            // 
-            // buttonNewProfile
-            // 
-            buttonNewProfile.BackColor = Color.White;
-            buttonNewProfile.Location = new Point(8, 58);
-            buttonNewProfile.Margin = new Padding(5);
-            buttonNewProfile.Name = "buttonNewProfile";
-            buttonNewProfile.Size = new Size(119, 38);
-            buttonNewProfile.TabIndex = 3;
-            buttonNewProfile.Text = "New";
-            buttonNewProfile.UseVisualStyleBackColor = false;
-            // 
-            // labelNote
-            // 
-            labelNote.AutoSize = true;
-            labelNote.Location = new Point(6, 109);
-            labelNote.Name = "labelNote";
-            labelNote.Size = new Size(587, 25);
-            labelNote.TabIndex = 2;
-            labelNote.Text = "note: make this some sort of dropdown box or file select to load json";
-            // 
-            // labelProfileName
-            // 
-            labelProfileName.AutoSize = true;
-            labelProfileName.Location = new Point(6, 28);
-            labelProfileName.Name = "labelProfileName";
-            labelProfileName.Size = new Size(62, 25);
-            labelProfileName.TabIndex = 1;
-            labelProfileName.Text = "Name";
-            // 
-            // textBoxProfileName
-            // 
-            textBoxProfileName.Location = new Point(74, 25);
-            textBoxProfileName.Name = "textBoxProfileName";
-            textBoxProfileName.Size = new Size(100, 32);
-            textBoxProfileName.TabIndex = 0;
+            profile1.Dock = DockStyle.Fill;
+            profile1.Location = new Point(3, 3);
+            profile1.Name = "profile1";
+            profile1.Size = new Size(1086, 646);
+            profile1.TabIndex = 0;
             // 
             // Form1
             // 
@@ -197,28 +150,18 @@
             tabPagePasswords.ResumeLayout(false);
             tabPageKnob.ResumeLayout(false);
             tabPageProfile.ResumeLayout(false);
-            groupBoxProfile.ResumeLayout(false);
-            groupBoxProfile.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
-        private GroupBox groupBoxWireTable;
         private TabControl tabControl1;
         private TabPage tabPageWireSequences;
         private TabPage tabPageProfile;
-        private GroupBox groupBoxProfile;
-        private Label labelNote;
-        private Label labelProfileName;
-        private TextBox textBoxProfileName;
-        private Button buttonNewProfile;
-        private WireSequences userControl11;
         private TabPage tabPagePasswords;
-        private Passwords passwords1;
         private TabPage tabPageKnob;
-        private Knob knob1;
         private WireSequences wireSequences1;
         private Passwords passwords2;
         private Knob knob2;
+        private Profile profile1;
     }
 }

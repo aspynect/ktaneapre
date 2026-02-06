@@ -9,10 +9,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Update="default.json">
+    <None Update="base.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="template.json">
+    <None Update="profiles\base.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="profiles\vanilla.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="vanilla.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

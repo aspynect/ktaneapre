@@ -11,10 +11,5 @@ namespace ktaneapre
         {
             this.TopMost = true;
         }
-
-        private void tabPageWireSequences_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

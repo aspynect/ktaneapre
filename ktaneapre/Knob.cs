@@ -17,9 +17,10 @@ namespace ktaneapre
 
         private void writeKnobData()
         {
+            if (Profile.profileName == "vanilla") return;
             jsonData.Knob = options;
             string fileContents = JsonSerializer.Serialize<JsonRoot>(jsonData, new JsonSerializerOptions { WriteIndented = true });
-            File.WriteAllText("template.json", fileContents);
+            File.WriteAllText(Path.Combine("profiles", $"{Profile.profileName}.json"), fileContents);
             updateOutput();
         }
 
@@ -63,7 +64,7 @@ namespace ktaneapre
             try
             {
                 InitializeComponent();
-                string fileContents = File.ReadAllText("template.json");
+                string fileContents = File.ReadAllText(Path.Combine("profiles", $"{Profile.profileName}.json"));
                 jsonData = JsonSerializer.Deserialize<JsonRoot>(fileContents)!;
                 options = jsonData.Knob;
                 updateOutput();

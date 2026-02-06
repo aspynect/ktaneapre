@@ -21,7 +21,7 @@ namespace ktaneapre
             try
             {
                 InitializeComponent();
-                string fileContents = File.ReadAllText("template.json");
+                string fileContents = File.ReadAllText(Path.Combine("profiles", $"{Profile.profileName}.json"));
                 JsonRoot jsonData = JsonSerializer.Deserialize<JsonRoot>(fileContents)!;
                 words = jsonData.Passwords;
             }
