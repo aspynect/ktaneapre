@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             groupBoxKnobInput = new GroupBox();
+            buttonKnobAddState = new Button();
             buttonKnob12 = new Button();
             buttonKnob11 = new Button();
             buttonKnob10 = new Button();
@@ -42,7 +43,11 @@
             buttonKnob2 = new Button();
             buttonKnob1 = new Button();
             groupBoxKnobOutput = new GroupBox();
-            labelKnobOutput = new Label();
+            checkBoxKnobCorrect = new CheckBox();
+            buttonKnobDown = new Button();
+            buttonKnobRight = new Button();
+            buttonKnobLeft = new Button();
+            buttonKnobUp = new Button();
             groupBoxKnobInput.SuspendLayout();
             groupBoxKnobOutput.SuspendLayout();
             SuspendLayout();
@@ -50,6 +55,7 @@
             // groupBoxKnobInput
             // 
             groupBoxKnobInput.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            groupBoxKnobInput.Controls.Add(buttonKnobAddState);
             groupBoxKnobInput.Controls.Add(buttonKnob12);
             groupBoxKnobInput.Controls.Add(buttonKnob11);
             groupBoxKnobInput.Controls.Add(buttonKnob10);
@@ -68,6 +74,17 @@
             groupBoxKnobInput.TabIndex = 0;
             groupBoxKnobInput.TabStop = false;
             groupBoxKnobInput.Text = "Knob Input";
+            // 
+            // buttonKnobAddState
+            // 
+            buttonKnobAddState.Enabled = false;
+            buttonKnobAddState.Location = new Point(6, 174);
+            buttonKnobAddState.Name = "buttonKnobAddState";
+            buttonKnobAddState.Size = new Size(222, 60);
+            buttonKnobAddState.TabIndex = 12;
+            buttonKnobAddState.Text = "Add State Entry";
+            buttonKnobAddState.UseVisualStyleBackColor = true;
+            buttonKnobAddState.Click += buttonKnobAddState_Click;
             // 
             // buttonKnob12
             // 
@@ -204,21 +221,76 @@
             // groupBoxKnobOutput
             // 
             groupBoxKnobOutput.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            groupBoxKnobOutput.Controls.Add(labelKnobOutput);
+            groupBoxKnobOutput.Controls.Add(checkBoxKnobCorrect);
+            groupBoxKnobOutput.Controls.Add(buttonKnobDown);
+            groupBoxKnobOutput.Controls.Add(buttonKnobRight);
+            groupBoxKnobOutput.Controls.Add(buttonKnobLeft);
+            groupBoxKnobOutput.Controls.Add(buttonKnobUp);
             groupBoxKnobOutput.Location = new Point(3, 249);
             groupBoxKnobOutput.Name = "groupBoxKnobOutput";
-            groupBoxKnobOutput.Size = new Size(591, 263);
+            groupBoxKnobOutput.Size = new Size(591, 230);
             groupBoxKnobOutput.TabIndex = 1;
             groupBoxKnobOutput.TabStop = false;
             groupBoxKnobOutput.Text = "Knob Output";
             // 
-            // labelKnobOutput
+            // checkBoxKnobCorrect
             // 
-            labelKnobOutput.AutoSize = true;
-            labelKnobOutput.Location = new Point(6, 19);
-            labelKnobOutput.Name = "labelKnobOutput";
-            labelKnobOutput.Size = new Size(0, 15);
-            labelKnobOutput.TabIndex = 0;
+            checkBoxKnobCorrect.AutoSize = true;
+            checkBoxKnobCorrect.Font = new Font("Segoe UI", 18F);
+            checkBoxKnobCorrect.Location = new Point(6, 184);
+            checkBoxKnobCorrect.Name = "checkBoxKnobCorrect";
+            checkBoxKnobCorrect.Size = new Size(110, 36);
+            checkBoxKnobCorrect.TabIndex = 4;
+            checkBoxKnobCorrect.Text = "Correct";
+            checkBoxKnobCorrect.UseVisualStyleBackColor = true;
+            // 
+            // buttonKnobDown
+            // 
+            buttonKnobDown.FlatAppearance.BorderColor = Color.Yellow;
+            buttonKnobDown.FlatAppearance.BorderSize = 3;
+            buttonKnobDown.Location = new Point(87, 103);
+            buttonKnobDown.Name = "buttonKnobDown";
+            buttonKnobDown.Size = new Size(75, 75);
+            buttonKnobDown.TabIndex = 3;
+            buttonKnobDown.Text = "Down";
+            buttonKnobDown.UseVisualStyleBackColor = true;
+            buttonKnobDown.Click += buttonKnobDown_Click;
+            // 
+            // buttonKnobRight
+            // 
+            buttonKnobRight.FlatAppearance.BorderColor = Color.Yellow;
+            buttonKnobRight.FlatAppearance.BorderSize = 3;
+            buttonKnobRight.Location = new Point(168, 103);
+            buttonKnobRight.Name = "buttonKnobRight";
+            buttonKnobRight.Size = new Size(75, 75);
+            buttonKnobRight.TabIndex = 2;
+            buttonKnobRight.Text = "Right";
+            buttonKnobRight.UseVisualStyleBackColor = true;
+            buttonKnobRight.Click += buttonKnobRight_Click;
+            // 
+            // buttonKnobLeft
+            // 
+            buttonKnobLeft.FlatAppearance.BorderColor = Color.Yellow;
+            buttonKnobLeft.FlatAppearance.BorderSize = 3;
+            buttonKnobLeft.Location = new Point(6, 103);
+            buttonKnobLeft.Name = "buttonKnobLeft";
+            buttonKnobLeft.Size = new Size(75, 75);
+            buttonKnobLeft.TabIndex = 1;
+            buttonKnobLeft.Text = "Left";
+            buttonKnobLeft.UseVisualStyleBackColor = true;
+            buttonKnobLeft.Click += buttonKnobLeft_Click;
+            // 
+            // buttonKnobUp
+            // 
+            buttonKnobUp.FlatAppearance.BorderColor = Color.Yellow;
+            buttonKnobUp.FlatAppearance.BorderSize = 3;
+            buttonKnobUp.Location = new Point(87, 22);
+            buttonKnobUp.Name = "buttonKnobUp";
+            buttonKnobUp.Size = new Size(75, 75);
+            buttonKnobUp.TabIndex = 0;
+            buttonKnobUp.Text = "Up";
+            buttonKnobUp.UseVisualStyleBackColor = true;
+            buttonKnobUp.Click += buttonKnobUp_Click;
             // 
             // Knob
             // 
@@ -227,7 +299,7 @@
             Controls.Add(groupBoxKnobOutput);
             Controls.Add(groupBoxKnobInput);
             Name = "Knob";
-            Size = new Size(597, 515);
+            Size = new Size(597, 483);
             groupBoxKnobInput.ResumeLayout(false);
             groupBoxKnobOutput.ResumeLayout(false);
             groupBoxKnobOutput.PerformLayout();
@@ -250,6 +322,11 @@
         private Button buttonKnob2;
         private Button buttonKnob1;
         private GroupBox groupBoxKnobOutput;
-        private Label labelKnobOutput;
+        private Button buttonKnobDown;
+        private Button buttonKnobRight;
+        private Button buttonKnobLeft;
+        private Button buttonKnobUp;
+        private CheckBox checkBoxKnobCorrect;
+        private Button buttonKnobAddState;
     }
 }

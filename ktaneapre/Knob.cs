@@ -13,15 +13,49 @@ namespace ktaneapre
     {
         bool[] inputs = [false, false, false, false, false, false, false, false, false, false, false, false];
         Dictionary<string, string> options;
+        JsonRoot jsonData;
 
-        private void updateOutput()
+        private void writeKnobData()
+        {
+            jsonData.Knob = options;
+            string fileContents = JsonSerializer.Serialize<JsonRoot>(jsonData, new JsonSerializerOptions { WriteIndented = true });
+            File.WriteAllText("template.json", fileContents);
+            updateOutput();
+        }
+
+        private string getOutputString()
         {
             string outputString = "";
             foreach (bool i in inputs)
             {
                 outputString += i ? 'x' : '/';
             }
-            labelKnobOutput.Text = options.ContainsKey(outputString) ? options[outputString] : "n/a";
+            return outputString;
+        }
+
+        private void updateOutput()
+        {
+            string outputString = getOutputString();
+            buttonKnobAddState.Enabled = options.ContainsKey(outputString) ? false : true;
+            buttonKnobUp.FlatStyle = options.GetValueOrDefault(outputString)?.Contains('u') == true ? FlatStyle.Flat : FlatStyle.Standard;
+            buttonKnobLeft.FlatStyle = options.GetValueOrDefault(outputString)?.Contains('l') == true ? FlatStyle.Flat : FlatStyle.Standard;
+            buttonKnobDown.FlatStyle = options.GetValueOrDefault(outputString)?.Contains('d') == true ? FlatStyle.Flat : FlatStyle.Standard;
+            buttonKnobRight.FlatStyle = options.GetValueOrDefault(outputString)?.Contains('r') == true ? FlatStyle.Flat : FlatStyle.Standard;
+        }
+
+        private void updateKnobData(char button)
+        {
+            string outputString = getOutputString();
+            if (!options.ContainsKey(outputString)) return;
+            if (checkBoxKnobCorrect.Checked)
+            {
+                options[outputString] = button.ToString();
+            }
+            else
+            {
+                options[outputString] = options[outputString].Replace(button.ToString(), "");
+            }
+            writeKnobData();
         }
 
         public Knob()
@@ -30,10 +64,11 @@ namespace ktaneapre
             {
                 InitializeComponent();
                 string fileContents = File.ReadAllText("template.json");
-                JsonRoot jsonData = JsonSerializer.Deserialize<JsonRoot>(fileContents)!;
+                jsonData = JsonSerializer.Deserialize<JsonRoot>(fileContents)!;
                 options = jsonData.Knob;
                 updateOutput();
-            } catch (Exception e){}
+            }
+            catch (Exception e) { }
         }
 
         private void buttonKnob1_Click(object sender, EventArgs e)
@@ -118,6 +153,37 @@ namespace ktaneapre
             inputs[11] = !inputs[11];
             buttonKnob12.FlatStyle = (inputs[11] == true) ? FlatStyle.Flat : FlatStyle.Standard;
             updateOutput();
+        }
+
+        private void buttonKnobUp_Click(object sender, EventArgs e)
+        {
+            updateKnobData('u');
+        }
+
+        private void buttonKnobLeft_Click(object sender, EventArgs e)
+        {
+            updateKnobData('l');
+
+        }
+
+        private void buttonKnobDown_Click(object sender, EventArgs e)
+        {
+            updateKnobData('d');
+
+        }
+
+        private void buttonKnobRight_Click(object sender, EventArgs e)
+        {
+            updateKnobData('r');
+
+        }
+
+        private void buttonKnobAddState_Click(object sender, EventArgs e)
+        {
+            string outputString = getOutputString();
+            options[outputString] = "udlr";
+            updateOutput();
+            writeKnobData();
         }
     }
 }
