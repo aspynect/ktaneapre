@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Drawing.Text;
 using System.Text;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Windows.Forms;
 using static System.Windows.Forms.Design.AxImporter;
 
@@ -19,6 +20,7 @@ namespace ktaneapre
         private int wireSeqBlackCount;
         private string currentSequenceStep = "";
         private Wireseq sequences;
+        private JsonRoot jsonData;
 
         private void newWireSequenceStep()
         {
@@ -71,7 +73,7 @@ namespace ktaneapre
                 {buttonOutput3, buttonOutput3A, buttonOutput3B, buttonOutput3C }
             };
 
-            switch(currentSequenceStep[currentSequenceStepStep])
+            switch (currentSequenceStep[currentSequenceStepStep])
             {
                 case 'r':
                     operands[currentSequenceStepStep, 0].BackColor = Color.Red;
@@ -107,18 +109,36 @@ namespace ktaneapre
             }
         }
 
+        private void updateSequenceData(int relevantStepStep, char color, char letter)
+        {
+            if (color == 'r')
+            {
+                sequences.Red[wireSeqRedCount - (currentSequenceStep.Substring(relevantStepStep).Split('r').Length - 1)] = sequences.Red[wireSeqRedCount - 1].Replace(letter.ToString(), "");
+            }
+            if (color == 'b')
+            {
+                sequences.Blue[wireSeqBlueCount - (currentSequenceStep.Substring(relevantStepStep).Split('b').Length - 1)] = sequences.Blue[wireSeqBlueCount - 1].Replace(letter.ToString(), "");
+            }
+            if (color == 'k')
+            {
+                sequences.Black[wireSeqBlackCount - (currentSequenceStep.Substring(relevantStepStep).Split('k').Length - 1)] = sequences.Black[wireSeqBlackCount - 1].Replace(letter.ToString(), "");
+            }
+            jsonData.Wireseq = sequences;
+            string fileContents = JsonSerializer.Serialize<JsonRoot>(jsonData, new JsonSerializerOptions { WriteIndented = true });
+            File.WriteAllText("template.json", fileContents);
+        }
+
         public WireSequences()
         {
-
             try
             {
                 InitializeComponent();
                 resetWireSequences();
                 string fileContents = File.ReadAllText("template.json");
-                JsonRoot jsonData = JsonSerializer.Deserialize<JsonRoot>(fileContents)!;
+                jsonData = JsonSerializer.Deserialize<JsonRoot>(fileContents)!;
                 sequences = jsonData.Wireseq;
             }
-            catch (Exception e){}
+            catch (Exception e) { }
         }
 
         private void buttonInputRed_Click(object sender, EventArgs e)
@@ -162,6 +182,78 @@ namespace ktaneapre
         private void buttonNextStage_Click(object sender, EventArgs e)
         {
             newWireSequenceStep();
+        }
+
+        private void buttonOutput1A_Click(object sender, EventArgs e)
+        {
+            var buttonSender = (Button)sender;
+            if (buttonSender.FlatStyle != FlatStyle.Flat) return;
+            updateSequenceData(0, currentSequenceStep[0], 'a');
+            buttonSender.FlatStyle = FlatStyle.Standard;
+        }
+
+        private void buttonOutput1B_Click(object sender, EventArgs e)
+        {
+            var buttonSender = (Button)sender;
+            if (buttonSender.FlatStyle != FlatStyle.Flat) return;
+            updateSequenceData(0, currentSequenceStep[0], 'b');
+            buttonSender.FlatStyle = FlatStyle.Standard;
+        }
+
+        private void buttonOutput1C_Click(object sender, EventArgs e)
+        {
+            var buttonSender = (Button)sender;
+            if (buttonSender.FlatStyle != FlatStyle.Flat) return;
+            updateSequenceData(0, currentSequenceStep[0], 'c');
+            buttonSender.FlatStyle = FlatStyle.Standard;
+        }
+
+        private void buttonOutput2A_Click(object sender, EventArgs e)
+        {
+            var buttonSender = (Button)sender;
+            if (buttonSender.FlatStyle != FlatStyle.Flat) return;
+            updateSequenceData(1, currentSequenceStep[1], 'a');
+            buttonSender.FlatStyle = FlatStyle.Standard;
+        }
+
+        private void buttonOutput2B_Click(object sender, EventArgs e)
+        {
+            var buttonSender = (Button)sender;
+            if (buttonSender.FlatStyle != FlatStyle.Flat) return;
+            updateSequenceData(1, currentSequenceStep[1], 'b');
+            buttonSender.FlatStyle = FlatStyle.Standard;
+        }
+
+        private void buttonOutput2C_Click(object sender, EventArgs e)
+        {
+            var buttonSender = (Button)sender;
+            if (buttonSender.FlatStyle != FlatStyle.Flat) return;
+            updateSequenceData(1, currentSequenceStep[1], 'c');
+            buttonSender.FlatStyle = FlatStyle.Standard;
+        }
+
+        private void buttonOutput3A_Click(object sender, EventArgs e)
+        {
+            var buttonSender = (Button)sender;
+            if (buttonSender.FlatStyle != FlatStyle.Flat) return;
+            updateSequenceData(2, currentSequenceStep[2], 'a');
+            buttonSender.FlatStyle = FlatStyle.Standard;
+        }
+
+        private void buttonOutput3B_Click(object sender, EventArgs e)
+        {
+            var buttonSender = (Button)sender;
+            if (buttonSender.FlatStyle != FlatStyle.Flat) return;
+            updateSequenceData(2, currentSequenceStep[2], 'b');
+            buttonSender.FlatStyle = FlatStyle.Standard;
+        }
+
+        private void buttonOutput3C_Click(object sender, EventArgs e)
+        {
+            var buttonSender = (Button)sender;
+            if (buttonSender.FlatStyle != FlatStyle.Flat) return;
+            updateSequenceData(2, currentSequenceStep[2], 'c');
+            buttonSender.FlatStyle = FlatStyle.Standard;
         }
     }
 }

@@ -219,6 +219,7 @@
             buttonOutput3C.TabIndex = 16;
             buttonOutput3C.Text = "C";
             buttonOutput3C.UseVisualStyleBackColor = false;
+            buttonOutput3C.Click += buttonOutput3C_Click;
             // 
             // buttonOutput2C
             // 
@@ -232,6 +233,7 @@
             buttonOutput2C.TabIndex = 15;
             buttonOutput2C.Text = "C";
             buttonOutput2C.UseVisualStyleBackColor = false;
+            buttonOutput2C.Click += buttonOutput2C_Click;
             // 
             // buttonOutput1C
             // 
@@ -245,6 +247,7 @@
             buttonOutput1C.TabIndex = 14;
             buttonOutput1C.Text = "C";
             buttonOutput1C.UseVisualStyleBackColor = false;
+            buttonOutput1C.Click += buttonOutput1C_Click;
             // 
             // buttonOutput3B
             // 
@@ -258,6 +261,7 @@
             buttonOutput3B.TabIndex = 13;
             buttonOutput3B.Text = "B";
             buttonOutput3B.UseVisualStyleBackColor = false;
+            buttonOutput3B.Click += buttonOutput3B_Click;
             // 
             // buttonOutput2B
             // 
@@ -271,6 +275,7 @@
             buttonOutput2B.TabIndex = 12;
             buttonOutput2B.Text = "B";
             buttonOutput2B.UseVisualStyleBackColor = false;
+            buttonOutput2B.Click += buttonOutput2B_Click;
             // 
             // buttonOutput1B
             // 
@@ -284,6 +289,7 @@
             buttonOutput1B.TabIndex = 11;
             buttonOutput1B.Text = "B";
             buttonOutput1B.UseVisualStyleBackColor = false;
+            buttonOutput1B.Click += buttonOutput1B_Click;
             // 
             // buttonOutput3A
             // 
@@ -297,6 +303,7 @@
             buttonOutput3A.TabIndex = 9;
             buttonOutput3A.Text = "A";
             buttonOutput3A.UseVisualStyleBackColor = false;
+            buttonOutput3A.Click += buttonOutput3A_Click;
             // 
             // buttonOutput3
             // 
@@ -324,6 +331,7 @@
             buttonOutput2A.TabIndex = 7;
             buttonOutput2A.Text = "A";
             buttonOutput2A.UseVisualStyleBackColor = false;
+            buttonOutput2A.Click += buttonOutput2A_Click;
             // 
             // buttonOutput2
             // 
@@ -351,6 +359,7 @@
             buttonOutput1A.TabIndex = 5;
             buttonOutput1A.Text = "A";
             buttonOutput1A.UseVisualStyleBackColor = false;
+            buttonOutput1A.Click += buttonOutput1A_Click;
             // 
             // buttonOutput1
             // 

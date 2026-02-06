@@ -103,10 +103,10 @@
             // tabPageKnob
             // 
             tabPageKnob.Controls.Add(knob2);
-            tabPageKnob.Location = new Point(4, 34);
+            tabPageKnob.Location = new Point(4, 24);
             tabPageKnob.Name = "tabPageKnob";
             tabPageKnob.Padding = new Padding(3);
-            tabPageKnob.Size = new Size(1092, 652);
+            tabPageKnob.Size = new Size(1092, 662);
             tabPageKnob.TabIndex = 3;
             tabPageKnob.Text = "Knob";
             tabPageKnob.UseVisualStyleBackColor = true;
@@ -116,7 +116,7 @@
             knob2.Dock = DockStyle.Fill;
             knob2.Location = new Point(3, 3);
             knob2.Name = "knob2";
-            knob2.Size = new Size(1086, 646);
+            knob2.Size = new Size(1086, 656);
             knob2.TabIndex = 0;
             // 
             // tabPageProfile
@@ -190,6 +190,7 @@
             Margin = new Padding(5);
             Name = "Form1";
             Text = "KTANEAPRE";
+            TopMost = true;
             Load += Form1_Load;
             tabControl1.ResumeLayout(false);
             tabPageWireSequences.ResumeLayout(false);

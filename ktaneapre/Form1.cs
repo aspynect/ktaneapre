@@ -9,7 +9,7 @@ namespace ktaneapre
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            this.TopMost = true;
         }
 
         private void tabPageWireSequences_Click(object sender, EventArgs e)
