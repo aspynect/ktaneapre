@@ -36,7 +36,7 @@
             tabPageKnob = new TabPage();
             knob2 = new Knob();
             tabPageProfile = new TabPage();
-            profile1 = new Profile();
+            profile2 = new Profile();
             tabControl1.SuspendLayout();
             tabPageWireSequences.SuspendLayout();
             tabPagePasswords.SuspendLayout();
@@ -79,10 +79,10 @@
             // tabPagePasswords
             // 
             tabPagePasswords.Controls.Add(passwords2);
-            tabPagePasswords.Location = new Point(4, 24);
+            tabPagePasswords.Location = new Point(4, 34);
             tabPagePasswords.Name = "tabPagePasswords";
             tabPagePasswords.Padding = new Padding(3);
-            tabPagePasswords.Size = new Size(1092, 662);
+            tabPagePasswords.Size = new Size(1092, 652);
             tabPagePasswords.TabIndex = 2;
             tabPagePasswords.Text = "Passwords";
             tabPagePasswords.UseVisualStyleBackColor = true;
@@ -92,16 +92,16 @@
             passwords2.Dock = DockStyle.Fill;
             passwords2.Location = new Point(3, 3);
             passwords2.Name = "passwords2";
-            passwords2.Size = new Size(1086, 656);
+            passwords2.Size = new Size(1086, 646);
             passwords2.TabIndex = 0;
             // 
             // tabPageKnob
             // 
             tabPageKnob.Controls.Add(knob2);
-            tabPageKnob.Location = new Point(4, 24);
+            tabPageKnob.Location = new Point(4, 34);
             tabPageKnob.Name = "tabPageKnob";
             tabPageKnob.Padding = new Padding(3);
-            tabPageKnob.Size = new Size(1092, 662);
+            tabPageKnob.Size = new Size(1092, 652);
             tabPageKnob.TabIndex = 3;
             tabPageKnob.Text = "Knob";
             tabPageKnob.UseVisualStyleBackColor = true;
@@ -111,12 +111,12 @@
             knob2.Dock = DockStyle.Fill;
             knob2.Location = new Point(3, 3);
             knob2.Name = "knob2";
-            knob2.Size = new Size(1086, 656);
+            knob2.Size = new Size(1086, 646);
             knob2.TabIndex = 0;
             // 
             // tabPageProfile
             // 
-            tabPageProfile.Controls.Add(profile1);
+            tabPageProfile.Controls.Add(profile2);
             tabPageProfile.Location = new Point(4, 34);
             tabPageProfile.Name = "tabPageProfile";
             tabPageProfile.Padding = new Padding(3);
@@ -125,13 +125,13 @@
             tabPageProfile.Text = "Profile";
             tabPageProfile.UseVisualStyleBackColor = true;
             // 
-            // profile1
+            // profile2
             // 
-            profile1.Dock = DockStyle.Fill;
-            profile1.Location = new Point(3, 3);
-            profile1.Name = "profile1";
-            profile1.Size = new Size(1086, 646);
-            profile1.TabIndex = 0;
+            profile2.Dock = DockStyle.Fill;
+            profile2.Location = new Point(3, 3);
+            profile2.Name = "profile2";
+            profile2.Size = new Size(1086, 646);
+            profile2.TabIndex = 0;
             // 
             // Form1
             // 
@@ -163,5 +163,6 @@
         private Passwords passwords2;
         private Knob knob2;
         private Profile profile1;
+        private Profile profile2;
     }
 }

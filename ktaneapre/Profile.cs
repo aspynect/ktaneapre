@@ -16,15 +16,26 @@ namespace ktaneapre
         public Profile()
         {
             InitializeComponent();
-            string[] files = Directory.GetFiles("./profiles", "*.json").Select(Path.GetFileNameWithoutExtension).ToArray();
-            comboBoxProfile.Items.AddRange(files);
+            try
+            {
+                string[] files = Directory.GetFiles("./profiles", "*.json").Select(Path.GetFileNameWithoutExtension).ToArray();
+                comboBoxProfile.Items.AddRange(files);
+                JsonHandling.loadData();
+                reloadModules();
+            }
+            catch { }
+        }
+
+        private void reloadModules()
+        {
+            //TODO figure this out lmao. i probably need to do event listener bullshit, define a custom event and have the other files listen to it
         }
 
         private void comboBoxProfile_SelectedIndexChanged(object sender, EventArgs e)
         {
             profileName = comboBoxProfile.Text;
-            //TODO make this reload the usercontrols, change window title?
-            
+            this.FindForm().Text = $"KTANEAPRE — {profileName}";
+            reloadModules();
         }
     }
 }

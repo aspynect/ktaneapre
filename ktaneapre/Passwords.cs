@@ -15,15 +15,19 @@ namespace ktaneapre
         string[] words;
         string[] passwordLetters = { "", "", "", "", "" };
 
+        public void reloadPasswordData()
+        {
+            //TODO make this work
+            words = JsonHandling.Data.Passwords;
+        }
+
         public Passwords()
         {
 
             try
             {
                 InitializeComponent();
-                string fileContents = File.ReadAllText(Path.Combine("profiles", $"{Profile.profileName}.json"));
-                JsonRoot jsonData = JsonSerializer.Deserialize<JsonRoot>(fileContents)!;
-                words = jsonData.Passwords;
+                reloadPasswordData();
             }
             catch (Exception e){}
         }

@@ -20,7 +20,6 @@ namespace ktaneapre
         private int wireSeqBlackCount;
         private string currentSequenceStep = "";
         private Wireseq sequences;
-        private JsonRoot jsonData;
 
         private void newWireSequenceStep()
         {
@@ -123,10 +122,15 @@ namespace ktaneapre
             {
                 sequences.Black[wireSeqBlackCount - (currentSequenceStep.Substring(relevantStepStep).Split('k').Length - 1)] = sequences.Black[wireSeqBlackCount - 1].Replace(letter.ToString(), "");
             }
-            if (Profile.profileName == "vanilla") return;
-            jsonData.Wireseq = sequences;
-            string fileContents = JsonSerializer.Serialize<JsonRoot>(jsonData, new JsonSerializerOptions { WriteIndented = true });
-            File.WriteAllText(Path.Combine("profiles", $"{Profile.profileName}.json"), fileContents);
+            JsonHandling.Data.Wireseq = sequences;
+            JsonHandling.writeData();
+        }
+
+        public void reloadSequenceData()
+        {
+            //TODO ummm make this work
+            resetWireSequences();
+            sequences = JsonHandling.Data.Wireseq;
         }
 
         public WireSequences()
@@ -134,10 +138,7 @@ namespace ktaneapre
             try
             {
                 InitializeComponent();
-                resetWireSequences();
-                string fileContents = File.ReadAllText(Path.Combine("profiles", $"{Profile.profileName}.json"));
-                jsonData = JsonSerializer.Deserialize<JsonRoot>(fileContents)!;
-                sequences = jsonData.Wireseq;
+                reloadSequenceData();
             }
             catch (Exception e) { }
         }

@@ -13,14 +13,11 @@ namespace ktaneapre
     {
         bool[] inputs = [false, false, false, false, false, false, false, false, false, false, false, false];
         Dictionary<string, string> options;
-        JsonRoot jsonData;
 
         private void writeKnobData()
         {
-            if (Profile.profileName == "vanilla") return;
-            jsonData.Knob = options;
-            string fileContents = JsonSerializer.Serialize<JsonRoot>(jsonData, new JsonSerializerOptions { WriteIndented = true });
-            File.WriteAllText(Path.Combine("profiles", $"{Profile.profileName}.json"), fileContents);
+            JsonHandling.Data.Knob = options;
+            JsonHandling.writeData();
             updateOutput();
         }
 
@@ -59,15 +56,19 @@ namespace ktaneapre
             writeKnobData();
         }
 
+        public void reloadKnobData()
+        {
+            options = JsonHandling.Data.Knob;
+            updateOutput();
+        }
+
         public Knob()
         {
             try
             {
+                //TODO make this work
                 InitializeComponent();
-                string fileContents = File.ReadAllText(Path.Combine("profiles", $"{Profile.profileName}.json"));
-                jsonData = JsonSerializer.Deserialize<JsonRoot>(fileContents)!;
-                options = jsonData.Knob;
-                updateOutput();
+                reloadKnobData();
             }
             catch (Exception e) { }
         }
