@@ -35,12 +35,15 @@
             passwords2 = new Passwords();
             tabPageKnob = new TabPage();
             knob2 = new Knob();
+            tabPageSimon = new TabPage();
             tabPageProfile = new TabPage();
             profile2 = new Profile();
+            simonSays1 = new SimonSays();
             tabControl1.SuspendLayout();
             tabPageWireSequences.SuspendLayout();
             tabPagePasswords.SuspendLayout();
             tabPageKnob.SuspendLayout();
+            tabPageSimon.SuspendLayout();
             tabPageProfile.SuspendLayout();
             SuspendLayout();
             // 
@@ -49,6 +52,7 @@
             tabControl1.Controls.Add(tabPageWireSequences);
             tabControl1.Controls.Add(tabPagePasswords);
             tabControl1.Controls.Add(tabPageKnob);
+            tabControl1.Controls.Add(tabPageSimon);
             tabControl1.Controls.Add(tabPageProfile);
             tabControl1.Dock = DockStyle.Fill;
             tabControl1.Location = new Point(0, 0);
@@ -79,10 +83,10 @@
             // tabPagePasswords
             // 
             tabPagePasswords.Controls.Add(passwords2);
-            tabPagePasswords.Location = new Point(4, 34);
+            tabPagePasswords.Location = new Point(4, 24);
             tabPagePasswords.Name = "tabPagePasswords";
             tabPagePasswords.Padding = new Padding(3);
-            tabPagePasswords.Size = new Size(1092, 652);
+            tabPagePasswords.Size = new Size(1092, 662);
             tabPagePasswords.TabIndex = 2;
             tabPagePasswords.Text = "Passwords";
             tabPagePasswords.UseVisualStyleBackColor = true;
@@ -92,16 +96,16 @@
             passwords2.Dock = DockStyle.Fill;
             passwords2.Location = new Point(3, 3);
             passwords2.Name = "passwords2";
-            passwords2.Size = new Size(1086, 646);
+            passwords2.Size = new Size(1086, 656);
             passwords2.TabIndex = 0;
             // 
             // tabPageKnob
             // 
             tabPageKnob.Controls.Add(knob2);
-            tabPageKnob.Location = new Point(4, 34);
+            tabPageKnob.Location = new Point(4, 24);
             tabPageKnob.Name = "tabPageKnob";
             tabPageKnob.Padding = new Padding(3);
-            tabPageKnob.Size = new Size(1092, 652);
+            tabPageKnob.Size = new Size(1092, 662);
             tabPageKnob.TabIndex = 3;
             tabPageKnob.Text = "Knob";
             tabPageKnob.UseVisualStyleBackColor = true;
@@ -111,16 +115,27 @@
             knob2.Dock = DockStyle.Fill;
             knob2.Location = new Point(3, 3);
             knob2.Name = "knob2";
-            knob2.Size = new Size(1086, 646);
+            knob2.Size = new Size(1086, 656);
             knob2.TabIndex = 0;
+            // 
+            // tabPageSimon
+            // 
+            tabPageSimon.Controls.Add(simonSays1);
+            tabPageSimon.Location = new Point(4, 34);
+            tabPageSimon.Name = "tabPageSimon";
+            tabPageSimon.Padding = new Padding(3);
+            tabPageSimon.Size = new Size(1092, 652);
+            tabPageSimon.TabIndex = 4;
+            tabPageSimon.Text = "Simon Says";
+            tabPageSimon.UseVisualStyleBackColor = true;
             // 
             // tabPageProfile
             // 
             tabPageProfile.Controls.Add(profile2);
-            tabPageProfile.Location = new Point(4, 34);
+            tabPageProfile.Location = new Point(4, 24);
             tabPageProfile.Name = "tabPageProfile";
             tabPageProfile.Padding = new Padding(3);
-            tabPageProfile.Size = new Size(1092, 652);
+            tabPageProfile.Size = new Size(1092, 662);
             tabPageProfile.TabIndex = 1;
             tabPageProfile.Text = "Profile";
             tabPageProfile.UseVisualStyleBackColor = true;
@@ -130,8 +145,17 @@
             profile2.Dock = DockStyle.Fill;
             profile2.Location = new Point(3, 3);
             profile2.Name = "profile2";
-            profile2.Size = new Size(1086, 646);
+            profile2.Size = new Size(1086, 656);
             profile2.TabIndex = 0;
+            profile2.ProfileChanged += profile2_ProfileChanged;
+            // 
+            // simonSays1
+            // 
+            simonSays1.Dock = DockStyle.Fill;
+            simonSays1.Location = new Point(3, 3);
+            simonSays1.Name = "simonSays1";
+            simonSays1.Size = new Size(1086, 646);
+            simonSays1.TabIndex = 0;
             // 
             // Form1
             // 
@@ -149,6 +173,7 @@
             tabPageWireSequences.ResumeLayout(false);
             tabPagePasswords.ResumeLayout(false);
             tabPageKnob.ResumeLayout(false);
+            tabPageSimon.ResumeLayout(false);
             tabPageProfile.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -164,5 +189,7 @@
         private Knob knob2;
         private Profile profile1;
         private Profile profile2;
+        private TabPage tabPageSimon;
+        private SimonSays simonSays1;
     }
 }

@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace ktaneapre
 {
-    public partial class Knob : UserControl
+    public partial class Knob : UserControl, Reloadable
     {
         bool[] inputs = [false, false, false, false, false, false, false, false, false, false, false, false];
         Dictionary<string, string> options;
@@ -56,7 +56,7 @@ namespace ktaneapre
             writeKnobData();
         }
 
-        public void reloadKnobData()
+        public void reload()
         {
             options = JsonHandling.Data.Knob;
             updateOutput();
@@ -66,9 +66,8 @@ namespace ktaneapre
         {
             try
             {
-                //TODO make this work
                 InitializeComponent();
-                reloadKnobData();
+                reload();
             }
             catch (Exception e) { }
         }

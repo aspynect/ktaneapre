@@ -66,6 +66,7 @@
             buttonNewProfile.TabIndex = 3;
             buttonNewProfile.Text = "New";
             buttonNewProfile.UseVisualStyleBackColor = false;
+            buttonNewProfile.Click += buttonNewProfile_Click;
             // 
             // Profile
             // 

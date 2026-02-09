@@ -11,5 +11,18 @@ namespace ktaneapre
         {
             this.TopMost = true;
         }
+
+        private void profile2_ProfileChanged(object sender, EventArgs e)
+        {
+            foreach (TabPage tabPage in this.tabControl1.TabPages)
+            {
+                foreach (Control control in tabPage.Controls)
+                {
+                    if (control is not Reloadable reloadableControl) continue;
+                    reloadableControl.reload();
+                }
+            }
+            
+        }
     }
 }

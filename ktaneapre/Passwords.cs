@@ -10,24 +10,28 @@ using System.Windows.Forms;
 
 namespace ktaneapre
 {
-    public partial class Passwords : UserControl
+    public partial class Passwords : UserControl, Reloadable
     {
         string[] words;
         string[] passwordLetters = { "", "", "", "", "" };
 
-        public void reloadPasswordData()
+        public void reload()
         {
-            //TODO make this work
             words = JsonHandling.Data.Passwords;
+            textBoxPasswords1.Text = "";
+            textBoxPasswords2.Text = "";
+            textBoxPasswords3.Text = "";
+            textBoxPasswords4.Text = "";
+            textBoxPasswords5.Text = "";
+            labelPasswordsOutput.Text = "";
         }
 
         public Passwords()
         {
-
             try
             {
                 InitializeComponent();
-                reloadPasswordData();
+                reload();
             }
             catch (Exception e){}
         }

@@ -21,21 +21,29 @@ namespace ktaneapre
                 string[] files = Directory.GetFiles("./profiles", "*.json").Select(Path.GetFileNameWithoutExtension).ToArray();
                 comboBoxProfile.Items.AddRange(files);
                 JsonHandling.loadData();
-                reloadModules();
+                ProfileChanged?.Invoke(this, EventArgs.Empty);
             }
             catch { }
         }
 
-        private void reloadModules()
-        {
-            //TODO figure this out lmao. i probably need to do event listener bullshit, define a custom event and have the other files listen to it
-        }
+        public event EventHandler? ProfileChanged;
 
         private void comboBoxProfile_SelectedIndexChanged(object sender, EventArgs e)
         {
             profileName = comboBoxProfile.Text;
+            JsonHandling.loadData();
             this.FindForm().Text = $"KTANEAPRE — {profileName}";
-            reloadModules();
+            ProfileChanged?.Invoke(this, EventArgs.Empty);
         }
+
+        private void buttonNewProfile_Click(object sender, EventArgs e)
+        {
+            
+        }
+    }
+
+    interface Reloadable
+    {
+        void reload();
     }
 }

@@ -13,7 +13,7 @@ using static System.Windows.Forms.Design.AxImporter;
 namespace ktaneapre
 {
 
-    public partial class WireSequences : UserControl
+    public partial class WireSequences : UserControl, Reloadable
     {
         private int wireSeqRedCount;
         private int wireSeqBlueCount;
@@ -126,11 +126,10 @@ namespace ktaneapre
             JsonHandling.writeData();
         }
 
-        public void reloadSequenceData()
+        public void reload()
         {
-            //TODO ummm make this work
-            resetWireSequences();
             sequences = JsonHandling.Data.Wireseq;
+            resetWireSequences();
         }
 
         public WireSequences()
@@ -138,7 +137,7 @@ namespace ktaneapre
             try
             {
                 InitializeComponent();
-                reloadSequenceData();
+                reload();
             }
             catch (Exception e) { }
         }
